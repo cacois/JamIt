@@ -1,0 +1,51 @@
+'''
+Google Code Jam
+Problem: {0}
+'''
+import jamit
+from jamit import Case
+from jamit import Solver
+import sys
+
+class {0}Case(Case):
+    def populate(self, line):
+        # You have to implement this
+
+    def isDone(self):
+        # You have to implement this
+
+    def __str__(self):
+        # You have to implement this
+
+class {0}Solver(Solver):
+    def __init__(self):
+        # You have to implement this
+    
+    def solve(self, case):
+        # You have to implement this
+
+
+if __name__ == "__main__":
+
+    cases = None
+    
+    # read in file from command line parameter
+    filename = sys.argv[1]
+    file = open(filename,"r")
+
+    # parse input file into cases list
+    while file:
+        case = {0}Case()
+        case.populate(file.readline())
+        cases.add(case)
+    
+    file.close()
+
+    # initialize solver
+    solver = {0}Solver()
+
+    # solve cases
+    for case in cases:
+        result = solver.solve(case)
+        print(result)
+
