@@ -5,14 +5,31 @@ Copyright (C) 2012 C. A. Cois, aaron.cois@gmail.com
 
 JamIt will generate Python scaffolding to make your Google Code Jam experience more efficient. Scaffold code for a problem can be generated with the following command:
 
+
 $ python jamit-gen.py <problem_name> <base_dir?>
+
 
 The base_dir parameter allows you to specify a directory in which to store the project code, if desired. Two files will be generated:
 
 <problem_name>.py
 jamit.py
 
-The file jamit.py contains some base classes used by jamit to define basic functionality. For the sake of argument, let's say we generated some scaffolding for a problem named Lonestar. In this case, Lonestar.py will be generated - this is the code you will edit to implement your problem solution. Lonestar.py will contain two classes, LonestarCase and LonestarSolver. Also generated is the problem solving workflow, designed for command line use. In short, Lonestar.pt will take a Google Code Jam (GCJ) data file, create a LonestarCase object from each data file line (make sure to add some code to skip the first line, if necessary), collect these LonestarCase objects in a list, and pass each LonestarCase to a LonestarSolver object, in turn, to calculate the solution. You must implement the appropriate stricture and functionality of LonestarCase and LonestarSolver. 
+The file jamit.py contains some base classes used by jamit to define basic functionality. Remember to upload jamit.py along with your problem code when you submit your solution!
+
+Let's say we generate some scaffolding for a problem named Lonestar: 
+
+
+$ python jamit-gen.py Lonestar
+
+
+In this case, Lonestar.py will be generated - this is the code you will edit to implement your problem solution. Lonestar.py will contain two classes:
+
+    * LonestarCase 
+    * LonestarSolver 
+    
+Also generated is the problem solving workflow, designed for command line use. In short, Lonestar.py will take a Google Code Jam (GCJ) data file, create a LonestarCase object from each data file line (make sure to add some code to skip the first line, if necessary), collect these LonestarCase objects in a list, and pass each LonestarCase to a LonestarSolver object, in turn, to calculate the solution. You must implement the appropriate stricture and functionality of LonestarCase and LonestarSolver. When complete, the usage will look like:
+$ python Lonestar.py data.txt
+
 
 All GCJ problems are structured as a series of cases, which will each be represented as a LonestarCase in our example. In GCJ data files, each case is defined by a single line of data. The LonestarCase.populate(line) method allows you to implement a parser for a given line, which will extract pertinent case data and store it in the LonestarCase object in question. If needed, you can also implement an isDone() method and a __str__ magic method to get a peek at the state of a case during execution.
 
