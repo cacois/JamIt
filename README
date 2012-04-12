@@ -27,12 +27,14 @@ In this case, Lonestar.py will be generated - this is the code you will edit to 
     * LonestarCase 
     * LonestarSolver 
     
-Also generated is the problem solving workflow, designed for command line use. In short, Lonestar.py will take a Google Code Jam (GCJ) data file, create a LonestarCase object from each data file line (make sure to add some code to skip the first line, if necessary), collect these LonestarCase objects in a list, and pass each LonestarCase to a LonestarSolver object, in turn, to calculate the solution. You must implement the appropriate stricture and functionality of LonestarCase and LonestarSolver. When complete, the usage will look like:
+Also generated is the problem solving workflow, designed for command line use. In short, Lonestar.py will take a Google Code Jam (GCJ) data file, create a LonestarCase object from each data file line (make sure to add some code to skip the first line, if necessary), collect these LonestarCase objects in a list, and pass each LonestarCase to a LonestarSolver object, in turn, to calculate the solution. You must implement the appropriate structure and functionality of LonestarCase and LonestarSolver. When complete, the usage will look like:
+
+
 $ python Lonestar.py data.txt
 
 
 All GCJ problems are structured as a series of cases, which will each be represented as a LonestarCase in our example. In GCJ data files, each case is defined by a single line of data. The LonestarCase.populate(line) method allows you to implement a parser for a given line, which will extract pertinent case data and store it in the LonestarCase object in question. If needed, you can also implement an isDone() method and a __str__ magic method to get a peek at the state of a case during execution.
 
-Now that you have a structured case object, you need to implement your LonestarSolver object to solve cases. An __init__ magic method has been provided for any necessary solver initialization. Other than that, you just have to implement the LonestarSolver.solve() method, which is where all the CGJ fun lies. 
+Now that you have a structured case object, you need to implement your LonestarSolver object to solve cases. An __init__ magic method has been provided for any necessary solver initialization. Other than that, you just have to implement the LonestarSolver.solve() method, which is where all the CGJ problem-solving fun lies. 
 
 Happy jamming!
