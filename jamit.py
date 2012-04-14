@@ -20,73 +20,37 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 SOFTWARE.
-
-----
-
-Google Code Jam 2012
-Problem: {0}
-Coder: 
 '''
-import jamit
-from jamit import Case
-from jamit import Solver
+
+import os
 import sys
 
-#-----------------
-# Jamit Scaffolds
-#-----------------
+#--------------------
+# JamIt Base Classes
+#--------------------
 
-class {0}Case(Case):
-    def populate(self, line):
-        ### You have to implement this
-        return
-
+class Case:
+	
+    def populate(self):
+        raise NotImplementedError("You should implement this")
+	
     def isDone(self):
-        ### You have to implement this
-        return
-
+        raise NotImplementedError("You should implement this")
+	
     def __str__(self):
-        ### You have to implement this
-        return
-		
-class {0}Solver(Solver):
-    def __init__(self):
-        ### You have to implement this
-        return
-    
-    def solve(self, case):
-        ### You have to implement this
-        return
+        raise NotImplementedError("You should implement this")
 
-#--------------
-# Command Line
-#--------------
-
-if __name__ == "__main__":
-
+class Solver:
+	
     cases = []
-
-    if len(sys.argv) < 2:
-        print("Please supply an input data file")
-        exit()
-    
-    # read in file from command line parameter
-    filename = sys.argv[1]
-    file = open(filename,"r")
-
-    # parse input file into cases list
-    while file:
-        case = {0}Case()
-        case.populate(file.readline())
-        cases.append(case)
-    
-    file.close()
-
-    # initialize solver
-    solver = {0}Solver()
-
-    # solve cases
-    for case in cases:
-        result = solver.solve(case)
-        print(result)
+	
+    def __init__(self):
+        raise NotImplementedError("You should implement this")
+	
+    def solve(self, case):
+        raise NotImplementedError("You should implement this")
+	
+    def printCases(self):
+		for case in self.cases:
+			print(case)
 
